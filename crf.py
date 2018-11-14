@@ -121,7 +121,7 @@ def test():
     tagger = pycrfsuite.Tagger()
     tagger.open('test.crfsuite')
 
-    example_sent = data_test[0]
+    example_sent = data_test[4:6]
     print(' '.join(sent2tokens(example_sent)), end='\n\n')
     print("Predicted:", ' '.join(tagger.tag(sent2features(example_sent))))
     print("Correct:  ", ' '.join(sent2labels(example_sent)))
@@ -142,12 +142,13 @@ def bio_classification_report(y_true, y_pred):
                                  target_names=tagset,
                                  )
 
-tagger = pycrfsuite.Tagger()
-tagger.open('test.crfsuite')
-y_pred = [tagger.tag(xseq) for xseq in x_test]
-print(bio_classification_report(y_test, y_pred))
+# tagger = pycrfsuite.Tagger()
+# tagger.open('test.crfsuite')
+# y_pred = [tagger.tag(xseq) for xseq in x_test]
+# print(bio_classification_report(y_test, y_pred))
 
 
 
 
-#test()
+test()
+# train()
